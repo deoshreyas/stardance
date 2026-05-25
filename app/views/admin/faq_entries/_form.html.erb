@@ -1,0 +1,46 @@
+<%= form_with model: [:admin, faq_entry] do |f| %>
+  <div>
+    <%= f.label :question %>
+    <%= f.text_field :question %>
+  </div>
+
+  <div>
+    <%= f.label :answer %>
+    <%= f.text_area :answer, rows: 4 %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
+
+<style>
+  form {
+    margin-top: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    label {
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 4px;
+      border: none;
+      font-size: 1.25rem;
+    }
+
+    input[type="submit"] {
+      background: var(--color-green-500);
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.25rem;
+    }
+  }
+</style>

@@ -1,0 +1,11 @@
+<div class="page-faq">
+  <h1>Frequently Asked Questions</h1>
+  <h2>Got more questions? Email us at <%= mail_to "stardance@hackclub.com" %> and we'll try to respond within two days!</h2>
+
+  <% @faq_entries.each do |entry| %>
+    <div class="faq-entry">
+      <h2><%= entry.question %></h2>
+      <p><%= md(entry.answer) %></p>
+    </div>
+  <% end %>
+</div>

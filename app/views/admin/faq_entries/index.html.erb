@@ -1,0 +1,69 @@
+<%= render HeadingComponent.new(title: "FAQ Entries", tone: :blue) %>
+
+<%= render "form", faq_entry: @faq_entry %>
+
+<table class="table-data">
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Answer</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @faq_entries.each do |entry| %>
+      <tr>
+        <td><%= entry.question %></td>
+        <td><%= md(entry.answer) %></td>
+        <td>
+          <%= link_to "Edit", edit_admin_faq_entry_path(entry), class: "edit-btn" %>
+        </td>
+        <td>
+          <%= button_to "Delete", admin_faq_entry_path(entry), method: :delete, class: "delete-btn" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<style>
+  table.table-data {
+    color: black;
+    margin-top: 1.5em;
+    width: 100%;
+  }
+
+  table.table-data td form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+
+  a.edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: var(--color-blue-500);
+    color: white;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  .delete-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    vertical-align: middle;
+    background: var(--color-red-500);
+    color: white;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+</style>
