@@ -26,4 +26,8 @@ class HelperPolicy < ApplicationPolicy
   def view_support_vibes?
     access?
   end
+
+  def manage_faq?
+    access?
+  end
 end
