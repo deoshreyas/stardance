@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_19_091148) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_25_223131) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "vector"
@@ -188,6 +188,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_19_091148) do
     t.datetime "updated_at", null: false
     t.index ["item_type", "item_id"], name: "index_disco_recommendations_on_item"
     t.index ["subject_type", "subject_id"], name: "index_disco_recommendations_on_subject"
+  end
+
+  create_table "faq_pages", force: :cascade do |t|
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "flavortime_sessions", force: :cascade do |t|

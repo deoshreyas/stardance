@@ -692,5 +692,12 @@ Rails.application.routes.draw do
   # Guides
   resources :guides, only: [ :index, :show ]
 
+  # FAQ
+  get "/faq", to: "faq#index", as: :faq
+
+  namespace :admin, constraints: AdminConstraint do
+    resource :faq_page, only: %i[edit update], controller: "faq_page"
+  end
+
   get "/:ref", to: "landing#index", constraints: { ref: /[a-z0-9][a-z0-9_-]{0,63}/ }
 end

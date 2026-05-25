@@ -136,4 +136,7 @@
   <% if policy(:admin).access_flavortime_dashboard? %>
     <%= link_to "Flavortime Dashboard", admin_flavortime_dashboard_path, class: button_class %>
   <% end %>
+  <% if policy(:admin).manage_faq? %>
+    <%= link_to "Edit FAQ page", edit_admin_faq_page_path, class: button_class %>
+  <% end %>
 </div>
