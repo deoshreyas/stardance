@@ -505,6 +505,7 @@ Rails.application.routes.draw do
     end
     resources :shop_orders, only: [ :index, :show ]
     resources :support_vibes, only: [ :index ]
+    resource :faq_page, only: %i[edit update], controller: "faq_page"
   end
 
   # admin shallow routing
