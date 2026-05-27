@@ -6,11 +6,11 @@ module FaqPageManagement
   end
 
   def edit
-    authorize_faq!
+    authorize :faq_page
   end
 
   def update
-    authorize_faq!
+    authorize :faq_page
     if @faq_page.update(faq_page_params)
         redirect_to faq_edit_path, notice: "Successfully updated."
     else
@@ -29,10 +29,6 @@ module FaqPageManagement
   end
 
   # Should be overriden by controllers
-  def authorize_faq!
-    raise NotImplementedError, "Must implement authorize_faq! in the controller"
-  end
-
   def faq_edit_path
     raise NotImplementedError, "Must implement faq_edit_path in the controller"
   end
