@@ -1,0 +1,19 @@
+<% content_for :title, "Edit FAQ" %>
+
+<%= render HeadingComponent.new(title: "Edit FAQ page", tone: :blue) %>
+
+<div class="edit-faq-page">
+  <%= form_with model: [:admin, @faq_page], local: true do |f| %>
+    <div class="field">
+      <%= f.text_area :body, rows: 20, class: "input-monospace" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Save", class: "btn-primary" %>
+    </div>
+  <% end %>
+
+  <div class="audit-log">
+    <%= render "admin/shared/audit_log", record: @faq_page, item_type: "FaqPage" %>
+  </div>
+</div>

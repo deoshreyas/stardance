@@ -600,6 +600,9 @@ Rails.application.routes.draw do
     end
     get "user-perms", to: "users#user_perms"
     resource :support, only: [ :show ], controller: "support/dashboards"
+    namespace :support do
+      resource :faq_page, only: %i[edit update], controller: "faq_page"
+    end
     resource :fraud, only: [ :show ], controller: "fraud/dashboards"
     resource :shop, only: [ :show ], controller: "shop/dashboard"
     post "shop/clear-carousel-cache", to: "shop/dashboard#clear_carousel_cache", as: :clear_carousel_cache
@@ -814,6 +817,13 @@ Rails.application.routes.draw do
       post :undo
       get  :redeem
     end
+  end
+
+  # FAQ
+  get "/faq", to: "faq#index", as: :faq
+
+  namespace :admin, constraints: AdminConstraint do
+    resource :faq_page, only: %i[edit update], controller: "faq_page"
   end
 
   # Branded error pages. config.exceptions_app routes failures back through the

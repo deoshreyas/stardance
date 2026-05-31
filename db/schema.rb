@@ -235,6 +235,25 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_03_142640) do
     t.index ["user_id"], name: "index_devlog_versions_on_user_id"
   end
 
+  create_table "disco_recommendations", force: :cascade do |t|
+    t.string "context"
+    t.datetime "created_at", null: false
+    t.bigint "item_id"
+    t.string "item_type"
+    t.float "score"
+    t.bigint "subject_id"
+    t.string "subject_type"
+    t.datetime "updated_at", null: false
+    t.index ["item_type", "item_id"], name: "index_disco_recommendations_on_item"
+    t.index ["subject_type", "subject_id"], name: "index_disco_recommendations_on_subject"
+  end
+
+  create_table "faq_pages", force: :cascade do |t|
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "flipper_features", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "key", null: false
