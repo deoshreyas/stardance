@@ -797,6 +797,10 @@ Rails.application.routes.draw do
 
   get "edu", to: "landing#edu", as: :edu
 
+  # FAQ
+  get "/faq", to: redirect("/resources/faq"), as: :legacy_faq
+  get "/resources/faq", to: "faq#index", as: :faq
+
   # Resources
   resources :resources, only: [ :index, :show ]
 
@@ -818,9 +822,6 @@ Rails.application.routes.draw do
       get  :redeem
     end
   end
-
-  # FAQ
-  get "/faq", to: "faq#index", as: :faq
 
   namespace :admin, constraints: AdminConstraint do
     resource :faq_page, only: %i[edit update], controller: "faq_page"
