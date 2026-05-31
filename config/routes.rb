@@ -797,8 +797,8 @@ Rails.application.routes.draw do
 
   get "edu", to: "landing#edu", as: :edu
 
-  # Guides
-  resources :guides, only: [ :index, :show ]
+  # Resources
+  resources :resources, only: [ :index, :show ]
 
   # Missions (public listing + show page).
   # Project-side / reviewer-queue / admin-managed missions surfaces ship in later PRs.

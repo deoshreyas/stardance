@@ -1,4 +1,4 @@
-class GuidesController < ApplicationController
+class ResourcesController < ApplicationController
   before_action :set_body_class
 
   def index

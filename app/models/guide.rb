@@ -101,5 +101,5 @@ Guide = Data.define(:slug, :title, :description, :category, :icon, :reading_minu
 
   def related_guides = related.map { |s| Guide.find_by_slug(s) }.compact
 
-  def partial_path = "guides/topics/#{slug}"
+  def partial_path = "resources/topics/#{slug}"
 end
