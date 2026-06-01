@@ -99,4 +99,8 @@ class Rsvp < ApplicationRecord
   end
 
   def enqueue_geocode_job = RsvpGeocodeJob.perform_later(id)
+
+  def increment_signup_counter
+    Rails.cache.increment("landing/signup_count", 1, expires_in: 30.seconds)
+  end
 end
