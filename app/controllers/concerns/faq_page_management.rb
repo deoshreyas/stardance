@@ -12,9 +12,9 @@ module FaqPageManagement
   def update
     authorize :faq_page
     if @faq_page.update(faq_page_params)
-        redirect_to faq_edit_path, notice: "Successfully updated."
+      redirect_to faq_edit_path, notice: "Successfully updated."
     else
-        render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
