@@ -43,7 +43,7 @@ class SidebarComponent < ViewComponent::Base
       { slug: "shop",          label: "shop",          path: "/shop",
         icon: { idle: "cart", active: "cart_active" },
         notify: signed_in? && user.shop_tutorial_notify? },
-      { slug: "resources",     label: "resources",     path: helpers.guides_path,
+      { slug: "resources",     label: "resources",     path: helpers.resources_path,
         icon: { idle: "book", active: "book_active" } }
     ])
 
